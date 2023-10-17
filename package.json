@@ -4,7 +4,7 @@
   "description": "Exercises 9.1 to 9.7",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "calculateBmi": "ts-node bmiCalculator.ts"
   },
   "author": "larcondo",
   "license": "ISC",

@@ -1,3 +1,22 @@
+interface BodyData {
+  hValue: number;
+  wValue: number;
+}
+
+const parseArguments = (args: string[]): BodyData => {
+  if (args.length < 4) throw new Error('Not enough arguments');
+  if (args.length > 4) throw new Error('Too many arguments');
+
+  if (!isNaN(Number(args[2])) && !isNaN(Number(args[3]))) {
+    return {
+      hValue: Number(args[2]),
+      wValue: Number(args[3]),
+    }
+  } else {
+    throw new Error('Height and Weight were not numbers!')
+  }
+}
+
 const calculateBmi = (h: number, w: number): string => {
   if (h === 0) throw new Error('Height can not be 0!!');
   if (h < 0) throw new Error('Height must be grater than 0!!');
@@ -26,11 +45,13 @@ const calculateBmi = (h: number, w: number): string => {
   }
 }
 
-
 try {
-  // console.log(calculateBmi(0, 74))
-  // console.log(calculateBmi(-10, 74))
-  console.log(calculateBmi(180, 74))
+  const { hValue, wValue } = parseArguments(process.argv)
+
+  console.log(`Your height: ${hValue} cm`)
+  console.log(`Your weight: ${wValue} kg`)
+  console.log(`BMI category: ${calculateBmi(hValue, wValue)}`)
+
 } catch (error: unknown) {
   let errorMessage = 'Something went wrong: '
   if (error instanceof Error) {

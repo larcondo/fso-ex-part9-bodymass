@@ -4,7 +4,8 @@
   "description": "Exercises 9.1 to 9.7",
   "main": "index.js",
   "scripts": {
-    "calculateBmi": "ts-node bmiCalculator.ts"
+    "calculateBmi": "ts-node bmiCalculator.ts",
+    "calculateExercises": "ts-node exerciseCalculator.ts"
   },
   "author": "larcondo",
   "license": "ISC",

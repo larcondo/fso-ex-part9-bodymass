@@ -13,21 +13,21 @@ const parseArguments = (args: string[]): BodyData => {
     return {
       hValue: Number(args[2]),
       wValue: Number(args[3]),
-    }
+    };
   } else {
-    throw new Error('Height and Weight were not numbers!')
+    throw new Error('Height and Weight were not numbers!');
   }
-}
+};
 
 try {
-  const { hValue, wValue } = parseArguments(process.argv)
+  const { hValue, wValue } = parseArguments(process.argv);
 
-  console.log(`Your height: ${hValue} cm`)
-  console.log(`Your weight: ${wValue} kg`)
-  console.log(`BMI category: ${calculateBmi(hValue, wValue)}`)
+  console.log(`Your height: ${hValue} cm`);
+  console.log(`Your weight: ${wValue} kg`);
+  console.log(`BMI category: ${calculateBmi(hValue, wValue)}`);
 
 } catch (error: unknown) {
-  let errorMessage = 'Something went wrong: '
+  let errorMessage = 'Something went wrong: ';
   if (error instanceof Error) {
     errorMessage += error.message;
   }

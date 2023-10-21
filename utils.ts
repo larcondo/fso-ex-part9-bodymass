@@ -2,7 +2,7 @@ export const calculateBmi = (h: number, w: number): string => {
   if (h === 0) throw new Error('Height can not be 0!!');
   if (h < 0) throw new Error('Height must be grater than 0!!');
 
-  const bmi = w / ( h * h * 0.0001)
+  const bmi = w / ( h * h * 0.0001);
 
   switch (true) {
     case (bmi < 16.0):
@@ -24,7 +24,7 @@ export const calculateBmi = (h: number, w: number): string => {
     default:
       return 'Not calculated';
   }
-}
+};
 
 interface Result {
   periodLength: number,
@@ -50,14 +50,14 @@ const getRating = (average: number, target: number): Rating => {
     default:
       return { desc: 'really bad', code: 1 };  
   }
-}
+};
 
 export const calculateExercises = ( dailyHours: number[], target: number): Result => {
   if (dailyHours.length === 0) throw new Error('Empty Array');
   if (target === 0 || target < 0) throw new Error('Target must be Greater than 0!!');
 
-  const sum = dailyHours.reduce((acc, current) => acc + current, 0)
-  const av = sum / dailyHours.length
+  const sum = dailyHours.reduce((acc, current) => acc + current, 0);
+  const av = sum / dailyHours.length;
   const ratingObj = getRating(av, target);
 
   return {
@@ -68,5 +68,5 @@ export const calculateExercises = ( dailyHours: number[], target: number): Resul
     ratingDescription: ratingObj.desc,
     target: target,
     average: av
-  }
-}
+  };
+};
